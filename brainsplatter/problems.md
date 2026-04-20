@@ -1,0 +1,1 @@
+Vet inte vad problemet var men nodemon ville inte starta upp ordentligt, löste sig tillslut, men var troligtvis pågrund av ett skrivfel.
