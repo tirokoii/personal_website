@@ -21,12 +21,17 @@ nunjucks.configure("views", {
     express: app
 })
 
+// app.use((req, res, next) => {
+//     console.log("This repeats for each callback")
+//     next()
+// })
+
 // Hämtar url / och skickar Hello till frontend
 app.use("/", indexRouter)
 app.use("/aboutMe", aboutMeRouter)
 app.use("/blog", blogRouter)
 
-app.use((req, res, next) => {
+app.use((req, res) => {
     res.status(404).render("404.njk", {
         title: "Page could not be found"
     })
