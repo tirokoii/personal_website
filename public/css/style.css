@@ -1,0 +1,5 @@
+main {
+    background-color: var(--color-light);
+    margin-inline: clamp(10px, 5%, 50px);
+}
+
