@@ -31,9 +31,19 @@ app.use("/", indexRouter)
 app.use("/aboutMe", aboutMeRouter)
 app.use("/blog", blogRouter)
 
-app.use((req, res) => {
+// Fångar upp om användaren skrivit in fel url
+app.use((req, res, next) => {
     res.status(404).render("404.njk", {
         title: "Page could not be found"
+    })
+})
+
+// Fångar up om "servern smälter"
+app.use((err, req, res, next) => {
+    console.error(err.stack)
+    res.status(500).render("500.njk", {
+        title: "Ett fel uppstod",
+        error: process.env.NODE_ENV === "development" ? err.message : ""
     })
 })
 
