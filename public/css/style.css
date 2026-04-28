@@ -1,5 +1,48 @@
 main {
+    display: inline-block;
     background-color: var(--color-light);
     margin-inline: clamp(10px, 5%, 50px);
+    margin-block: 40px;
 }
 
+nav {
+    background-color: var(--color-purple);
+    color: var(--color-light);
+    padding: 20px;
+    width: clamp(160px, 20vw, 200px);
+    height: min-content;
+
+    h3 {
+        font-size: clamp(1.6rem, 4vw, var(--h3-fontsize));
+    }
+
+    .link {
+        font-size: clamp(1.1rem, 4vw, 1.4rem);
+    }
+
+    .year-wrapper {
+        padding-left: 20px;
+    }
+
+    .year-link {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+    }
+
+    .years {
+        font-size: clamp(0.7rem, 4vw, 1rem);
+        padding-left: 20px;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: var(--color-black);
+        font-size: 105%;      
+    }
+}
