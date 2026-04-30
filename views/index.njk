@@ -7,17 +7,35 @@
                 <h1>TIROKOII</h1>
             </header>
             <div class="index-content">
-                <div>
+                <div class="left-content">
                     {% include "./components/navbar.njk" %}
                     {% include "./components/shrine-box.njk" %}
                 </div>
-                <div>
+                <div class="middle-content">
                     <div class="updates-wrapper">
-                        <div class="updates and news">
-                            <h2>UPDATES & NEWS</h2>
-                            <div class="blog-updates">
-
-                            </div>
+                        <h2>UPDATES & NEWS</h2>
+                        <div class="blog-updates">
+                            {% if error_msg %}
+                                {{ error_msg }}
+                            {% else %}
+                                {% for post in posts %}
+                                <div>
+                                    <div>
+                                        <h4>{{ post.title }}</h4>
+                                        {% for tag in post.tags %}
+                                            <p class="tag">{{ tag }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <p>
+                                        {% for letter in post.content %}
+                                            {% if index != 30 %}
+                                                {{ letter }}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                </div>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                     <div class="info-wrapper">
@@ -36,15 +54,17 @@
                     <div class="music-box">
                         <h4>MUSIC</h4>
                         <!-- something with songs, maybe like a small display where you can play song -->
-                         <a href="">Song of the day!!!</a>
+                        <!-- Temporary image placeholder -->
+                        <img src="static-images/Mona-Lisa 2.0.png" alt="">
+                        <a href="">Song of the day!!!</a>
                     </div>
                     <div class="pictures-box">
                         <h4>PICTURES</h4>
-                        <a href="#"><img src="#" alt="image from pictures from database"></a>
+                        <a href="#"><img src="static-images/Mona-Lisa 2.0.png" alt="image from pictures from database"></a>
                     </div>
                     <div class="art-box">
                         <h4>LATEST ART</h4>
-                        <a href="#"><img src="#" alt="image from art from database"></a>
+                        <a href="#"><img src="static-images/Mona-Lisa 2.0.png" alt="image from art from database"></a>
                     </div>
                 </div>
             </div>

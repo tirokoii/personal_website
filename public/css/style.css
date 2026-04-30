@@ -13,7 +13,7 @@ nav {
     height: min-content;
 
     h3 {
-        font-size: clamp(1.6rem, 4vw, var(--h3-fontsize));
+        font-size: clamp(1.5rem, 4vw, var(--h3-fontsize));
     }
 
     .link {
@@ -45,4 +45,27 @@ nav {
         color: var(--color-black);
         font-size: 105%;      
     }
+}
+
+.shrine-box {
+    background-color: var(--color-light);
+    height: clamp(80px, 25vw, 230px);
+    width: 100%;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: clamp(70px, 15vw, 200px);
+    }
+}
+
+.tag {
+    background-color: var(--color-white);
+}
+
+footer {
+    width: 60%;
+    height: 120px;
+    background-color: var(--color-light);
+    margin-top: 200px;
 }
