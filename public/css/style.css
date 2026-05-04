@@ -5,6 +5,12 @@ main {
     margin-block: 40px;
 }
 
+.content {
+    display: flex;
+    padding: 32px 0 32px 0;
+    height: auto;
+}
+
 nav {
     background-color: var(--color-purple);
     color: var(--color-light);
@@ -17,7 +23,7 @@ nav {
     }
 
     .link {
-        font-size: clamp(1.1rem, 4vw, 1.4rem);
+        font-size: clamp(1.1rem, 4vw, calc(var(--h4-fontsize)) - 0.3rem);
     }
 
     .year-wrapper {
@@ -25,11 +31,11 @@ nav {
     }
 
     .year-link {
-        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        font-size: clamp(0.9rem, 4vw, calc(var(--h4-fontsize)) - 0.5rem);
     }
 
     .years {
-        font-size: clamp(0.7rem, 4vw, 1rem);
+        font-size: clamp(0.7rem, 4vw, calc(var(--h4-fontsize)) - 0.7rem);
         padding-left: 20px;
     }
 
@@ -51,11 +57,32 @@ nav {
     background-color: var(--color-light);
     height: clamp(80px, 25vw, 230px);
     width: 100%;
+    padding: 20px;
 
     img {
         object-fit: cover;
         width: 100%;
-        height: clamp(70px, 15vw, 200px);
+        height: clamp(70px, 13vw, 170px);
+        margin-top: 8px;
+    }
+}
+
+.mood-box {
+    background-color: var(--color-light);
+    height: clamp(80px, 25vw, 230px);
+    width: clamp(80px, 25vw, 230px);
+
+    h3 {
+        font-size: clamp(1.3rem, 3.2vw, var(--h3-fontsize));
+        text-align: center;
+    }
+
+    img {
+        object-fit: cover;
+        width: auto;
+        height: clamp(70px, 15vw, 160px);
+        margin-top: 8px;  
+        margin-inline: 15px;
     }
 }
 

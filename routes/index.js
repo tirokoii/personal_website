@@ -5,8 +5,9 @@ const router = express.Router()
 router.get("/", async (req, res, next) => {
     try {
         const [rows] = await pool.query(`
-            SELECT post.id FROM blogPost
-            ORDER BY post.created_at 
+            SELECT blogPost.id, blogPost.title, blogPost.content, 
+            blogPost.created_at, blogPost.tags FROM blogPost
+            ORDER BY blogPost.created_at 
             DESC LIMIT 4
         `)
         res.render("index.njk", {

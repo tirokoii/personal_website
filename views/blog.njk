@@ -2,11 +2,96 @@
 
 {% block content %}
     <p>This is ground work for my blog</p>
-    <div class="wrapper">
-        <div>
-            <p>contentajefbiwaliehgrfkvusneblcnlkm</p>
-            <p>ajebvfalibvhjklwajiubsvjes</p>
-            <p>bjeablanjhvwyifunvleospjnjirvbeihybv</p>
-        </div>
+    <div class="blog-wrapper">
+        <div class="blog-content content">
+
+            <div class="left-content">
+                {% include "./components/navbar.njk" %}
+                <img src="#" alt="rad-image">
+                {% include "./components/shrine-box.njk" %}
+            </div>
+            <div class="main-content">
+                <h2>BLOG</h2>
+                <div class="middle-content">
+                    <div class="top-flex-area">
+                        <div class="rp-wrapper">
+                            {% if error_msg %}
+                            <div class="rp-content">
+                                    <h2>NO RECENT POSTS!</h2>
+                                    {{ error_msg }}
+                                </div>
+                            {% else %}
+                                {% for post in posts %}
+                                    {% if index == 1 %}
+                                            <div class="rp-content">
+                                                <h3>{{ post.title }}!</h3>
+                                                {% for tag in post.tags %}
+                                                    <p class="tag">{{ tag }}</p>
+                                                {% endfor %}
+                                            </div>
+                                            <p>{{ post.content }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        {% include "./components/mood-box.njk" %}
+                    </div>
+    
+                    <div class="at-posts-wrapper">
+                        <div class="atw-top">
+                            <h2>ALL TIME POSTS</h2>
+                            <div class="atw-img-wrapper">
+                                <img class="atw-img-1" src="#" alt="rad-image">
+                                <img class="atw-img-2" src="#" alt="rad-image">
+                            </div>
+                        </div> 
+                        <div class="allt-post-wrapper">
+                            {% if error_msg %}
+                            <div class="post-wrapper">
+                                {{ error_msg }}
+                            </div>
+                            {% else %}
+                                {% for post in posts %}
+                                <div class="post-wrapper">
+                                    <div>
+                                        <h4>{{ post.title }}</h4>
+                                        {% for tag in post.tags %}
+                                            <p class="tag">{{ tag }}</p>
+                                        {% endfor %}
+                                    </div>
+                                    <p>
+                                        {% for letter in post.content %}
+                                            {% if index != 30 %}
+                                                {{ letter }}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+    
+                    <div class="middle-bottom-wrapper">
+                            <div class="todo-box">
+                                <h5>3 things I want to do:</h5>
+                                <ul>
+                                    <li>Make it possible to add images in text</li>
+                                    <li>Make Gifs for the website</li>
+                                    <li>Learn kung-fu</li>
+                                </ul>
+                            </div>
+                            <img src="#" alt="rad-image">
+                            <div class="done-box">
+                                <h5>3 things I have done:</h5>
+                                <ul>
+                                    <li>Website UX</li>
+                                </ul>  
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div> 
     </div>
 {% endblock %}
