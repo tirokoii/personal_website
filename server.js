@@ -8,6 +8,8 @@ import blogRouter from "./routes/blog.js"
 
 // Skapar en variabel app som inehåller alla express funktioner
 const app = express()
+const PORT = process.env.PORT || 3000
+
 
 // En länk för att hänvisa express till public mappen
 app.use(express.static("public"))
@@ -45,12 +47,6 @@ app.use((err, req, res, next) => {
         title: "Ett fel uppstod",
         error: process.env.NODE_ENV === "development" ? err.message : ""
     })
-})
-
-// Visar meddelande i terminalen om vilken port som används
-const PORT = process.env.PORT || 3000
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`)
 })
 
 // Exporterar app och PORT så att de kan användas på andra platser
