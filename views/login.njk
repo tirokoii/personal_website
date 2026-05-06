@@ -1,5 +1,20 @@
 {% extends "./components/layout.njk" %}
 
 {% block content %}
-    <p>A form will go here</p>
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <label for="username">The username:</label>
+        <input type="text" name="username" autocomplete="off">
+        <label for="password">The password</label>
+        <input type="password" name="password" autocomplete="off">
+        <label for="petname">The owners pets name:</label>
+        <input type="text", name="petname" autocomplete="off">
+        <button type="submit">Send answer :D</button>
+    </form>
+    {% if messages %}
+        {% for message in messages %}
+            <p>messsage</p>
+        {% endfor %}
+    {% endif %}
+    <p>Hi</p>
 {% endblock %}

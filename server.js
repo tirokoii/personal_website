@@ -5,9 +5,11 @@ import morgan from "morgan"
 import indexRouter from "./routes/index.js"
 import aboutMeRouter from "./routes/aboutMe.js"
 import blogRouter from "./routes/blog.js"
+import loginRouter from "./routes/login.js"
 
 // Skapar en variabel app som inehåller alla express funktioner
 const app = express()
+
 
 // En länk för att hänvisa express till public mappen
 app.use(express.static("public"))
@@ -30,6 +32,7 @@ nunjucks.configure("views", {
 app.use("/", indexRouter)
 app.use("/aboutMe", aboutMeRouter)
 app.use("/blog", blogRouter)
+app.use("/login", loginRouter)
 
 // Fångar upp om användaren skrivit in fel url
 app.use((req, res, next) => {
