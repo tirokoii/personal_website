@@ -13,29 +13,28 @@ router.post("/",
     body("username")
     .trim()
     .notEmpty()
-    .withMessage("Nothing is not the answer")
-    .isLength({ min: 1 })
-    .withMessage("Make it longer dear"),
+    .withMessage("Nothing is not the answer"),
     body("password")
     .trim()
     .notEmpty()
-    .withMessage("Nothing, really?")
-    .isLength({ min: 1 })
-    .withMessage("You dare make it longer"),
+    .withMessage("Nothing, really?"),
     body("petname")
     .trim()
     .notEmpty()
     .withMessage("Nice try"),
     async (req, res, next) => {
-
         const errors = validationResult(req)
+        let messages = []
+
         if (!errors.isEmpty()) {
-            // messages = []
-            // errors.forEach(error => messages.push(error.msg))
-            // console.log(messages)
-            // res.render("login.njk", {
-            //     messages: messages
-            // })
+            const err = errors.errors
+            err.forEach(error => {
+                messages.push(error.msg)
+                console.log(messages)
+            })
+            res.render("login.njk", {
+                messages: messages
+            })
         }
 })
 
