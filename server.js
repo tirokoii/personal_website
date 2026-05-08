@@ -13,8 +13,10 @@ const app = express()
 
 // En länk för att hänvisa express till public mappen
 app.use(express.static("public"))
-
 app.use(morgan("dev"))
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 //  Konfigurerar nunjucks att använda views
 // autoscape: true gör att nunjucks automatiskt filtrerar bort farlig html-kod
@@ -44,7 +46,7 @@ app.use((req, res, next) => {
 // Fångar up om "servern smälter"
 app.use((err, req, res, next) => {
     console.error(err.stack)
-    res.status(500).render("500.njk", {
+    res.status(500).render("404.njk", {
         title: "Ett fel uppstod",
         error: process.env.NODE_ENV === "development" ? err.message : ""
     })

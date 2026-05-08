@@ -1,8 +1,10 @@
 import express from "express"
 import bcrypt from "bcrypt"
 import db from "../config/db.js"
-import { param, validationResult, body } from "express-validator"
+import { validationResult, body } from "express-validator"
+
 const router = express.Router()
+
 
 // Startsidan
 router.get("/", (req, res, next) => {
@@ -30,11 +32,25 @@ router.post("/",
             const err = errors.errors
             err.forEach(error => {
                 messages.push(error.msg)
-                console.log(messages)
             })
-            res.render("login.njk", {
-                messages: messages
-            })
+        }
+
+        const { username, password, petname } = req.body
+
+        try {
+            const rows = db.prepare('SELECT * FROM user WHERE name = (?)').all(username)
+
+            const user = rows[0]
+            if (!user) {
+                res.render("login.njk", {
+                    messages: [messages[1]]
+                }
+                )
+            }
+            console.log(user)
+            
+        } catch {
+            next
         }
 })
 
