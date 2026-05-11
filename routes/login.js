@@ -66,7 +66,6 @@ router.post("/",
                     messages: [messages]
                 })
             } else {
-                req.session.userID = user.id
                 req.session.username = user.name
                 req.session.authenticated = true
 

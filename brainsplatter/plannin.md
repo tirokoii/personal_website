@@ -9,3 +9,6 @@ samt taken_at...
 # Hopp till rätt kategori
 Kanske man skulle ha använt någon slags av query eller något för att skickas till
 rätt ställe.
+
+# Nästa steg
+Måste göra layouten för create samt även starta på dess metoder utifrån planeringen för den nästa gång. Efter det måste jag skapa databas tabellerna för de resterande sakerna.
