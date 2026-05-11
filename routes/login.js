@@ -39,16 +39,27 @@ router.post("/",
 
         try {
             const rows = db.prepare('SELECT * FROM user WHERE name = (?)').all(username)
-
             const user = rows[0]
-            if (!user) {
-                res.render("login.njk", {
-                    messages: [messages[1]]
-                }
-                )
+
+            if (user) {
+                var passIsMatch = await bcrypt.compare(password, user.hash_password)
+                var petIsMatch = await bcrypt.compare(petname, user.pet_name)
             }
-            console.log(user)
-            
+
+            if (!passIsMatch || !petIsMatch) {
+                if (!petIsMatch) {
+                    messages.push("Dude come on you do not know me that well...")
+                }
+                if (!passIsMatch) {
+                    messages.push("Username or password doesn't match")
+                }
+                res.render("login.njk", {
+                    messages: [messages]
+                })
+            } else {
+                return res.redirect("/create")
+            }
+
         } catch {
             next
         }

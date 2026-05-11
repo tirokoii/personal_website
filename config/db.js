@@ -20,13 +20,14 @@ db.exec(`
         id            INTEGER PRIMARY KEY AUTOINCREMENT,
         name          TEXT NOT NULL,
         hash_password TEXT NOT NULL,
+        pet_name      TEXT NOT NULL,
         updated_at    TEXT DEFAULT (datetime('now'))
     )
 `)
 
 const count = db.prepare('SELECT COUNT(*) as count FROM user').get()
 if (count.count === 0) {
-    const insert = db.prepare('INSERT INTO user (name, hash_password) VALUES (?, ?)')
-    insert.run("Flashdonuts_49", "$2b$10$ngyNrlrJnnxDX.gIVuqJBeMciuUH.xyjSt/yCxZ8kQsqEgnBWb8V2")
+    const insert = db.prepare('INSERT INTO user (name, hash_password, pet_name) VALUES (?, ?, ?)')
+    insert.run("Flashdonuts_49", "$2b$10$ngyNrlrJnnxDX.gIVuqJBeMciuUH.xyjSt/yCxZ8kQsqEgnBWb8V2", "$2b$10$5LX/3RqjNaFGVCELqUHsUe8V69RJ29vlqbsgkvS2xPOjbVuSlG8M2")
 }
 export default db;
