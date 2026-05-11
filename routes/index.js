@@ -21,8 +21,10 @@ router.get("/", async (req, res, next) => {
     }
 })
 
-router.get("/error", (err, req, res, next) => {
-    throw(err)
+router.get("/error", (req, res, next) => {
+    res.render("404.njk", {
+        title: "Something went wrong"
+    })
 })
 
 // Exporterar inehållet från router

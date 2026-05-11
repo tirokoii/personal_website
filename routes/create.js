@@ -8,7 +8,7 @@ router.get("/", async (req, res, next) => {
     res.render("login.njk")
 })
 
-router.get("/error", (err, req, res, next) => {
+router.get("/", (req, res, next) => {
     res.render("404.njk", {
         title: "You are not authorised"
     })
