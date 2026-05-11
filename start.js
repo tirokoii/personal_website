@@ -1,4 +1,4 @@
-import { app, PORT } from "./server"
+import { app, PORT } from "./server.js"
 
 // Visar meddelande i terminalen om vilken port som används
 app.listen(PORT, () => {

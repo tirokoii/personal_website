@@ -5,7 +5,6 @@ import { validationResult, body } from "express-validator"
 
 const router = express.Router()
 
-
 // Startsidan
 router.get("/", (req, res, next) => {
     res.render("login.njk")
@@ -60,11 +59,14 @@ router.post("/",
                     messages: [messages]
                 })
             } else {
+                req.sessionID = user.id
+                req.session.username = user.pet_name
+                req.session.authen = true
                 return res.redirect("/create")
             }
 
         } catch {
-            next
+            return next()
         }
 })
 

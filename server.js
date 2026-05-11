@@ -1,6 +1,7 @@
 import express from "express"
 import nunjucks from "nunjucks"
 import morgan from "morgan"
+import session from "express-session"
 
 import indexRouter from "./routes/index.js"
 import aboutMeRouter from "./routes/aboutMe.js"
@@ -28,6 +29,18 @@ nunjucks.configure("views", {
     express: app
 })
 
+app.use(session({
+    secret: "$2b$10$kYqI.6y2DgPcRgHoJEeOXeeu493LrrPtaegEncUip8Hlr5eWl59Gm", // Byt ut till en säker nyckel
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        sameSite: true, // Förhindrar CSRF-attacker
+        secure: false, // Sätt till true om du använder HTTPS
+        maxAge: 1000 * 60 * 60 * 24 // 24 timmar
+    }
+}))
+
+
 // app.use((req, res, next) => {
 //     console.log("This repeats for each callback")
 //     next()
@@ -51,7 +64,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
     console.error(err.stack)
     res.status(500).render("404.njk", {
-        title: "Ett fel uppstod",
+        title: "A problem has arised",
         error: process.env.NODE_ENV === "development" ? err.message : ""
     })
 })
