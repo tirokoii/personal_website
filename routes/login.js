@@ -14,14 +14,17 @@ router.get("/", (req, res, next) => {
 router.post("/",
     body("username")
     .trim()
+    .escape()
     .notEmpty()
     .withMessage("Nothing is not the answer"),
     body("password")
     .trim()
+    .escape()
     .notEmpty()
     .withMessage("Nothing, really?"),
     body("petname")
     .trim()
+    .escape()
     .notEmpty()
     .withMessage("Nice try"),
     async (req, res, next) => {
