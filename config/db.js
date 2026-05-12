@@ -4,17 +4,6 @@ import Database from "better-sqlite3";
 const db = new Database('tirokoii.db')
 db.pragma('journal_mode = WAL') // För att reversa om det blir fel
 
-// db.exec(`
-//     CREATE TABLE IF NOT EXISTS blogPost (
-//         id         INTEGER PRIMARY KEY AUTOINCREMENT,
-//         title      TEXT NOT NULL,
-//         content    TEXT NOT NULL,
-//         created_at TEXT DEFAULT (datetime('now'))
-//     )
-// `)
-
-// const count = db.prepare('SELECT COUNT(*) as count FROM blog').get();
-
 db.exec(`
     CREATE TABLE IF NOT EXISTS user (
         id            INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -24,6 +13,14 @@ db.exec(`
         updated_at    TEXT DEFAULT (datetime('now'))
     )
 `)
+
+db.exec(`
+    CREATE TABLE IF NOT EXISTS blogPost (
+        id          INTEGER PRIMARY KEY AUTOINCREMENT,
+        title       TEXT NOT NULL,
+        content     TEXT NOT NULL,
+        created_at  TEXT DEFAULT (datetime('now'))
+    )`)
 
 const count = db.prepare('SELECT COUNT(*) as count FROM user').get()
 if (count.count === 0) {
