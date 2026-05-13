@@ -5,3 +5,4 @@ tirokoii.db
 tirokoii.db-shm
 tirokoii.db-wal
 sessions.js
+.env

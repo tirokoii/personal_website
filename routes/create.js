@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
     const tag_rows = db.prepare(`
         SELECT tag.name FROM tag
     `).all()
-    console.log(tag_rows)
+
     res.render("create.njk", {
         tags: tag_rows
     })
@@ -40,7 +40,12 @@ router.post("/",
             })
         }
         
+        const tag_rows = db.prepare(`
+            SELECT tag.name FROM tag
+        `).all()
+
         const { title, content } = req.body
+        console.log(req.body)
 
         try {
             const insert_post = db.prepare(`INSERT INTO blogPost (title, content) VALUES (?, ?)`)
@@ -55,7 +60,8 @@ router.post("/",
             if (rows.length !== 0) {
                 res.render("create.njk", {
                     msg: "Post successful",
-                    post: rows
+                    post: rows,
+                    tags: tag_rows 
                 })    
             }
         } catch {

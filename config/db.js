@@ -1,7 +1,7 @@
 import Database from "better-sqlite3";
 
 // Skapa databas
-const db = new Database('tirokoii.db')
+const db = new Database(process.env.DATABASE_DATABASE)
 db.pragma('journal_mode = WAL')
 
 db.exec(`

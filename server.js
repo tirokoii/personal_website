@@ -64,8 +64,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
     console.error(err.stack)
     res.status(500).render("404.njk", {
-        title: "A problem has arised",
-        error: process.env.NODE_ENV === "development" ? err.message : ""
+        title: "A problem has arised"
     })
 })
 

@@ -15,3 +15,28 @@
     {% include "./footer.njk" %}
 </body>
 </html>
+
+<script>
+    const active_tags = []
+
+    function handleCheckBox(tag_name) {
+        const tag = document.getElementById(tag_name)
+        if (active_tags.length < 2 && !active_tags.includes(tag_name)) {
+            console.log("check")
+            tag.checked = true
+            active_tags.push(tag_name)
+        } else if (active_tags.length >= 2) {
+            console.log("uncheck")
+            for (i in active_tags) {
+                if ( active_tags[i] == tag_name) {
+                    active_tags.splice(i, 1)
+                    console.log(active_tags)
+                }
+            }
+            tag.checked = false
+        }
+        
+        console.log(active_tags.length)
+    }
+
+</script>

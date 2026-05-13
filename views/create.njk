@@ -6,6 +6,14 @@
         <input type="text" name="title" autocomplete="off">
         <label for="content">Content:</label>
         <input type="text" name="content" autocomplete="off">
+        <fieldset>
+            {% if tags %}
+                {% for tag in tags %}
+                    <label for="{{ tag.name }}">{{ tag.name }}</label>
+                    <input type="checkbox" name="{{ tag.name }}" id="{{ tag.name }}" onclick="handleCheckBox(this.id)">
+                {% endfor %}
+            {% endif %}
+        </fieldset>
         <button type="submit">Post it >:D</button>
     </form>
     <div>
@@ -16,12 +24,4 @@
             <p>{{ msg }}</p>
         {% endif %}
     </div>
-    <form action="/create" method="POST">
-        {% if tags %}
-            {% for tag in tags %}
-                <label for="tag">{{ tag.name }}</label>
-                <input type="radio" name="tag">
-            {% endfor %}
-        {% endif %}
-    </form>
 {% endblock %}
