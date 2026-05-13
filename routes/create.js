@@ -10,7 +10,14 @@ router.get("/", async (req, res, next) => {
     // if (!req.session.authenticated) {
     //     return next()
     // }
-    res.render("create.njk")
+    
+    const tag_rows = db.prepare(`
+        SELECT tag.name FROM tag
+    `).all()
+    console.log(tag_rows)
+    res.render("create.njk", {
+        tags: tag_rows
+    })
 })
 
 router.post("/", 

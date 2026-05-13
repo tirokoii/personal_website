@@ -2,15 +2,15 @@ import Database from "better-sqlite3";
 
 // Skapa databas
 const db = new Database('tirokoii.db')
-db.pragma('journal_mode = WAL') // För att reversa om det blir fel
+db.pragma('journal_mode = WAL')
 
 db.exec(`
     CREATE TABLE IF NOT EXISTS user (
-        id            INTEGER PRIMARY KEY AUTOINCREMENT,
-        name          TEXT NOT NULL,
-        hash_password TEXT NOT NULL,
-        pet_name      TEXT NOT NULL,
-        updated_at    TEXT DEFAULT (datetime('now'))
+        id              INTEGER PRIMARY KEY AUTOINCREMENT,
+        name            TEXT NOT NULL,
+        hash_password   TEXT NOT NULL,
+        pet_name        TEXT NOT NULL,
+        updated_at      TEXT DEFAULT (datetime('now'))
     )
 `)
 
@@ -20,11 +20,37 @@ db.exec(`
         title       TEXT NOT NULL,
         content     TEXT NOT NULL,
         created_at  TEXT DEFAULT (datetime('now'))
-    )`)
+    )
+`)
 
-const count = db.prepare('SELECT COUNT(*) as count FROM user').get()
+db.exec(`
+    CREATE TABLE IF NOT EXISTS tag (
+        id          INTEGER PRIMARY KEY AUTOINCREMENT,
+        name        TEXT NOT NULL,
+        created_at  TEXT DEFAULT (datetime('now'))
+    )
+`)
+
+db.exec(`
+    CREATE TABLE IF NOT EXISTS postTag (
+        id          INTEGER PRIMARY KEY AUTOINCREMENT,
+        post_id     TEXT NOT NULL,
+        tag_id      TEXT NOT NULL
+    )
+`)
+
+db.exec(`
+    DELETE FROM blogPOST 
+    WHERE id = 4`)
+
+
+
+const count = db.prepare('SELECT COUNT(*) as count FROM tag').get()
 if (count.count === 0) {
-    const insert = db.prepare('INSERT INTO user (name, hash_password, pet_name) VALUES (?, ?, ?)')
-    insert.run("Flashdonuts_49", "$2b$10$ngyNrlrJnnxDX.gIVuqJBeMciuUH.xyjSt/yCxZ8kQsqEgnBWb8V2", "$2b$10$5LX/3RqjNaFGVCELqUHsUe8V69RJ29vlqbsgkvS2xPOjbVuSlG8M2")
+    const insert = db.prepare('INSERT INTO tag (name) VALUES (?)')
+    const tags = ["HAPPY", "UPDATES", "CODE", "FANTASIES", "DREAM", "ANIMAL", "GAMES", "INTERESTS", "ART", "MINDBUGLE", "SADGE", "EMOTIONS", "CONCEPT", "IDEA", "WEBSITE", "IMPROVMENT"]
+    tags.forEach(tag => {
+        insert.run(tag)
+    });
 }
 export default db;

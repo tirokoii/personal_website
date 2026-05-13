@@ -15,6 +15,7 @@ router.get("/", async (req, res, next) => {
             ORDER BY blogPost.created_at 
             DESC
         `).all()
+
         if (rows.length !== 0) {
             res.render("blog.njk", {
                 posts: rows

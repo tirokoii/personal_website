@@ -16,4 +16,12 @@
             <p>{{ msg }}</p>
         {% endif %}
     </div>
+    <form action="/create" method="POST">
+        {% if tags %}
+            {% for tag in tags %}
+                <label for="tag">{{ tag.name }}</label>
+                <input type="radio" name="tag">
+            {% endfor %}
+        {% endif %}
+    </form>
 {% endblock %}
