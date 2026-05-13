@@ -8,4 +8,12 @@
         <input type="text" name="content" autocomplete="off">
         <button type="submit">Post it >:D</button>
     </form>
+    <div>
+        {% if post %}
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <p>{{ post.created_at }}</p>
+            <p>{{ msg }}</p>
+        {% endif %}
+    </div>
 {% endblock %}

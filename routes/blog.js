@@ -1,23 +1,31 @@
 import express from "express"
+import bcrypt from "bcrypt"
+import db from "../config/db.js"
+import { validationResult, body } from "express-validator"
+import session from "express-session"
+
 const router = express.Router()
 
 // Startsidan
 router.get("/", async (req, res, next) => {
     try {
-        const [rows] = await pool.query(`
+        const rows = db.prepare(`
             SELECT blogPost.id, blogPost.title, blogPost.content, 
-            blogPost.created_at, blogPost.tags FROM blogPost
-            ORDER BY blogPost.created_at
+            blogPost.created_at FROM blogPost
+            ORDER BY blogPost.created_at 
             DESC
-        `)
-        res.render("blog.njk", {
-            posts: rows
-        })
-    } catch(err) {
-        res.render("blog.njk", {
-            error_msg: "No posts yet",
-            posts: "none"
-        })
+        `).all()
+        if (rows.length !== 0) {
+            res.render("blog.njk", {
+                posts: rows
+            })
+        } else {
+            res.render("blog.njk", {
+                error_msg: "No posts yet",
+            })
+        }
+    } catch {
+        return next()
     }
 })
 

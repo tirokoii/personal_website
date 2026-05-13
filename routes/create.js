@@ -36,10 +36,23 @@ router.post("/",
         const { title, content } = req.body
 
         try {
-            console.log("Nice cock (rooster)")
-            post = db.prepare('INSERT INTO post (title, content) VALUES (?, ?)').all(title, content)
+            const insert_post = db.prepare(`INSERT INTO blogPost (title, content) VALUES (?, ?)`)
+            insert_post.run(title, content)
+            const rows = db.prepare(`
+                SELECT blogPost.id, blogPost.title, blogPost.content, 
+                blogPost.created_at FROM blogPost
+                ORDER BY blogPost.created_at 
+                DESC LIMIT 2
+            `).all()
+            
+            if (rows.length !== 0) {
+                res.render("create.njk", {
+                    msg: "Post successful",
+                    post: rows
+                })    
+            }
         } catch {
-            console.log("You dude")
+            return next()
         }
     }
 )

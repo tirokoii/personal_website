@@ -16,20 +16,20 @@
                     <div class="top-flex-area">
                         <div class="rp-wrapper">
                             {% if error_msg %}
-                            <div class="rp-content">
+                                <div class="rp-content">
                                     <h2>NO RECENT POSTS!</h2>
                                     {{ error_msg }}
                                 </div>
                             {% else %}
                                 {% for post in posts %}
-                                    {% if index == 1 %}
+                                    {% if loop.index == 1 %}
                                             <div class="rp-content">
                                                 <h3>{{ post.title }}!</h3>
-                                                {% for tag in post.tags %}
+                                                <!-- {% for tag in post.tags %}
                                                     <p class="tag">{{ tag }}</p>
-                                                {% endfor %}
+                                                {% endfor %} -->
+                                                <p>{{ post.content }}</p>
                                             </div>
-                                            <p>{{ post.content }}</p>
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
