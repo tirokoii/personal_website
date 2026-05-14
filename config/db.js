@@ -1,4 +1,5 @@
 import Database from "better-sqlite3";
+import "dotenv/config"
 
 // Skapa databas
 const db = new Database(process.env.DATABASE_DATABASE)
@@ -58,6 +59,8 @@ if (user_count.count === 0) {
     const insert = db.prepare('INSERT INTO user (name, hash_password, pet_name) VALUES (?, ?, ?)')
     insert.run(process.env.DATABASE_USERNAME, process.env.DATABASE_PASSWORD, process.env.DATABASE_PETNAME)
 }
+
+console.log(process.env.DATABASE_DATABASE)
 
 const tag_count = db.prepare('SELECT COUNT(*) as count FROM tag').get()
 if (tag_count.count === 0) {
