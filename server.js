@@ -11,7 +11,7 @@ import createRouter from "./routes/create.js"
 
 // Skapar en variabel app som inehåller alla express funktioner
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.DATABASE_PORT || 3000
 
 
 // En länk för att hänvisa express till public mappen

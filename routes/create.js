@@ -45,16 +45,50 @@ router.post("/",
         `).all()
 
         const { title, content } = req.body
-        console.log(req.body)
+        const tags = []
+        let i = 0
+
+        for (let property in req.body) {
+            if (i > 1) {
+                tags.push(property)
+            }
+            i += 1
+        }
 
         try {
-            const insert_post = db.prepare(`INSERT INTO blogPost (title, content) VALUES (?, ?)`)
+            const insert_post = db.prepare(`
+                INSERT INTO blogPost (title, content) 
+                VALUES (?, ?)
+            `)
             insert_post.run(title, content)
+
             const rows = db.prepare(`
                 SELECT blogPost.id, blogPost.title, blogPost.content, 
                 blogPost.created_at FROM blogPost
                 ORDER BY blogPost.created_at 
-                DESC LIMIT 2
+                DESC LIMIT 1
+            `).all()
+
+            const tag_id = []
+            
+            tags.forEach(tag => {
+                const select_tag_row = db.prepare(`
+                    SELECT tag.id FROM tag
+                    WHERE tag.name = (?)
+                `).get(tag)
+                tag_id.push(select_tag_row.id)
+            })
+
+            tag_id.forEach(id => {
+                const insert_postTag = db.prepare(`
+                    INSERT INTO postTag (post_id, tag_id) 
+                    VALUES (?, ?)
+                `)
+                insert_postTag.run(rows[0].id, id)
+            })
+
+            const test = db.prepare(`
+                SELECT * FROM postTag
             `).all()
             
             if (rows.length !== 0) {
@@ -64,7 +98,8 @@ router.post("/",
                     tags: tag_rows 
                 })    
             }
-        } catch {
+        } catch(err) {
+            console.log(err)
             return next()
         }
     }
