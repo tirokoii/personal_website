@@ -26,13 +26,8 @@
                                             <p class="tag">{{ tag }}</p>
                                         {% endfor %} -->
                                     </div>
-                                    <p>
-                                        {% for letter in post.content %}
-                                            {% if index != 30 %}
-                                                {{ letter }}
-                                            {% endif %}
-                                        {% endfor %}
-                                    </p>
+                                    <p>{{ post.content }}</p>
+                                    <p>{{ post.created_at}}</p>
                                 </div>
                                 {% endfor %}
                             {% endif %}

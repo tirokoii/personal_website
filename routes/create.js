@@ -68,29 +68,26 @@ router.post("/",
                 ORDER BY blogPost.created_at 
                 DESC LIMIT 1
             `).all()
-
+            
             const tag_id = []
             
             tags.forEach(tag => {
                 const select_tag_row = db.prepare(`
                     SELECT tag.id FROM tag
                     WHERE tag.name = (?)
-                `).get(tag)
-                tag_id.push(select_tag_row.id)
-            })
+                    `).get(tag)
+                    tag_id.push(select_tag_row.id)
+                })
+                
+                tag_id.forEach(id => {
+                    const insert_postTag = db.prepare(`
+                        INSERT INTO postTag (post_id, tag_id) 
+                        VALUES (?, ?)
+                        `)
+                        insert_postTag.run(rows[0].id, id)
+                    })
+                    
 
-            tag_id.forEach(id => {
-                const insert_postTag = db.prepare(`
-                    INSERT INTO postTag (post_id, tag_id) 
-                    VALUES (?, ?)
-                `)
-                insert_postTag.run(rows[0].id, id)
-            })
-
-            const test = db.prepare(`
-                SELECT * FROM postTag
-            `).all()
-            
             if (rows.length !== 0) {
                 res.render("create.njk", {
                     msg: "Post successful",

@@ -13,19 +13,36 @@ router.get("/", async (req, res, next) => {
             SELECT blogPost.id, blogPost.title, blogPost.content, 
             blogPost.created_at FROM blogPost
             ORDER BY blogPost.created_at 
-            DESC
         `).all()
+
+        const post_tag = db.prepare(`
+            SELECT * FROM postTag
+        `).all()
+
+        const tag_row = db.prepare(`
+            SELECT * FROM tag
+        `).all()
+
+        // const tag_rows = db.prepare(`
+        //     SELECT tag_id FROM postTag
+        //     WHERE post_id = (?)
+        // `)
+
+        // tag_rows.all(rows[0].id)
 
         if (rows.length !== 0) {
             res.render("blog.njk", {
-                posts: rows
+                posts: rows,
+                tag_post_row: post_tag,
+                tags: tag_row
             })
         } else {
             res.render("blog.njk", {
                 error_msg: "No posts yet",
             })
         }
-    } catch {
+    } catch(err) {
+        console.log(err)
         return next()
     }
 })
