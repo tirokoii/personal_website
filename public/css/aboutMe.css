@@ -1,0 +1,176 @@
+.about-wrapper {
+    background-color: var(--color-white);
+    margin: clamp(10px, 5%, 30px);
+    padding-bottom: 20px;
+
+    h1 {
+        font-size: 3.3rem;
+        background-color: var(--color-white);
+        width: fit-content;
+        padding: 20px 50px 20px 35px;
+        margin-block: 10px;
+    }
+}
+
+.about-content {
+    .left-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-light);
+        width: 100%;
+    }
+
+    .top-content {
+        background-color: var(--color-white);
+        width: auto;
+        border: 20px solid var(--color-purple);
+        margin: 35px 120px 35px 35px;
+        padding: 20px;
+
+        h3 {
+            border-bottom: 4px solid var(--color-purple);
+            margin-bottom: 10px;
+        }
+    }
+
+    .middle-content {
+        display: flex;
+        flex-direction: row;
+        column-gap: 25px;
+        margin-right: clamp(100px, 20vw, 350px);
+
+        .pref-wrapper {
+            background-color: var(--color-white);
+            width: clamp(120px, 27vw, 450px);
+            border: 20px solid var(--color-purple);
+            margin: 35px 0px 35px 35px;
+            padding: 15px;
+
+            div {
+                display: flex;
+                justify-content: space-between;
+                width: auto;
+            }
+
+            h2 {
+                padding-bottom: 5px;
+                border-bottom: 3px solid var(--color-purple);
+            }
+
+            li {
+                position: relative;
+            }
+
+            ul {
+                margin-left: 20px;
+                list-style: none;
+            }
+            
+            .left-list {
+                border-right: 3px solid var(--color-purple);
+            }
+            
+            .left-list, .right-list {
+                width: 50%;
+                padding-block: 10px;
+            }
+
+            .inner-list p::before {
+                content: "--> ";
+                position: absolute;
+                left: -10px;
+            }
+            
+            .inner-list p {
+                margin-left: 10px;
+            }
+            
+            b::before {
+                content: "- ";
+            }
+        }
+    }
+
+    .bottom-content {
+        display: flex;
+        justify-content: space-between;
+
+        .link-box {
+            align-self: flex-end;
+            background-color: var(--color-white);
+            width: clamp(120px, 22vw, 230px);
+            height: clamp(120px, 22vw, 230px);
+            margin: 20px;
+            padding: 20px;
+
+            h4 {
+                border-bottom: 2px solid var(--color-purple);
+                margin-bottom: 10px;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        .bottom-right-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 65%;
+    
+            .hobbies {
+                background-color: var(--color-purple);
+                padding: 20px;
+            }
+    
+            .hobbie-header {
+                display: flex;
+                position: relative;
+                width: 100%;
+                padding-bottom: 10px;
+    
+                img {
+                    position:absolute;
+                    right: 0;
+                }
+            }
+    
+            ul {
+                list-style: none;
+                background-color: var(--color-light);
+                padding: 15px;
+            }
+    
+            ul li p::before {
+                content: "--> ";
+            }
+        }
+    
+        .buttons-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 15px;
+    
+            button {
+                width: 40%;
+                height: 90px;
+            }
+    
+            img {
+                width: 15%;
+            }
+        }
+    }
+
+}

@@ -9,3 +9,4 @@ Eftersom cookies försvinner varje gång man gör fil förändringar, kommentera
 Jag hade stora problem med att få checkboxarna att fungera, jag hade tydligen inte lärt mig så mycket om hur arrays och for loopen fungerar i js. For loop med:
 for (i in item) ger en index, vilket jag hade glömt totalt. Dessutom hade jag ingen anning hur man skulle ta bort ett objekt från en array, vilket visade sig bara vara splice(start_index, längd).
 
+Before p i inner-list ville inte göra att pillarna hamnade precis innan p elementet fast den var position: absolute, den ville istället ta html body som sin parent och hamnade hela vägen åt vänster. Problemet var att jag inte hade satt parent elementet till p (li) som position: relative, när jag gjorde det fixade det sig.

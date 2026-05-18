@@ -10,7 +10,7 @@ import blogRouter from "./routes/blog.js"
 import loginRouter from "./routes/login.js"
 import createRouter from "./routes/create.js"
 
-// Skapar en variabel app som inehåller alla express funktioner
+// Skapar en variabel app som innehåller alla express funktioner
 const app = express()
 const PORT = process.env.DATABASE_PORT || 3000
 

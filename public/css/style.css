@@ -7,7 +7,6 @@ main {
 
 .content {
     display: flex;
-    padding: 32px 0 32px 0;
     height: auto;
 }
 
@@ -20,6 +19,7 @@ nav {
 
     h3 {
         font-size: clamp(1.5rem, 4vw, var(--h3-fontsize));
+        margin-bottom: 15px;
     }
 
     .link {
