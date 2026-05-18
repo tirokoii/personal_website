@@ -15,6 +15,15 @@ router.get("/", async (req, res, next) => {
             ORDER BY blogPost.created_at 
             DESC LIMIT 4
         `).all()
+
+        const post_tag = db.prepare(`
+            SELECT * FROM postTag
+        `).all()
+
+        const tag_row = db.prepare(`
+            SELECT * FROM tag
+        `).all()
+
         if (rows.length === 0) {
             res.render("index.njk", {
                 error_msg: "No posts yet",
@@ -22,7 +31,9 @@ router.get("/", async (req, res, next) => {
             })
         } else {
             res.render("index.njk", {
-                posts: rows
+                posts: rows,
+                tag_post_row: post_tag,
+                tags: tag_row
             })
         }
     } catch {
