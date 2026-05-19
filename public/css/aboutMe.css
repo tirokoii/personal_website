@@ -30,7 +30,7 @@
         background-color: var(--color-white);
         width: auto;
         border: 20px solid var(--color-purple);
-        margin: 35px 120px 35px 35px;
+        margin: clamp(10px, 2%, 65px);
         padding: 20px;
 
         h3 {
@@ -43,13 +43,12 @@
         display: flex;
         flex-direction: row;
         column-gap: 25px;
-        margin-right: clamp(100px, 20vw, 350px);
+        margin: clamp(10px, 2%, 65px);
 
         .pref-wrapper {
             background-color: var(--color-white);
             width: clamp(120px, 27vw, 450px);
             border: 20px solid var(--color-purple);
-            margin: 35px 0px 35px 35px;
             padding: 15px;
 
             div {
@@ -82,7 +81,7 @@
             }
 
             .inner-list p::before {
-                content: "--> ";
+                content: "→ ";
                 position: absolute;
                 left: -10px;
             }
@@ -100,14 +99,16 @@
     .bottom-content {
         display: flex;
         justify-content: space-between;
+        margin: clamp(10px, 2%, 65px);
 
         .link-box {
             align-self: flex-end;
             background-color: var(--color-white);
-            width: clamp(120px, 22vw, 230px);
+            width: 27%;
             height: clamp(120px, 22vw, 230px);
-            margin: 20px;
+            margin-right: 30px;
             padding: 20px;
+            border: 5px solid var(--color-purple);
 
             h4 {
                 border-bottom: 2px solid var(--color-purple);
@@ -152,7 +153,7 @@
             }
     
             ul li p::before {
-                content: "--> ";
+                content: "→ ";
             }
         }
     

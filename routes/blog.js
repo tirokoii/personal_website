@@ -12,7 +12,8 @@ router.get("/", async (req, res, next) => {
         const rows = db.prepare(`
             SELECT blogPost.id, blogPost.title, blogPost.content, 
             blogPost.created_at FROM blogPost
-            ORDER BY blogPost.created_at 
+            ORDER BY blogPost.created_at
+            DESC
         `).all()
 
         const post_tag = db.prepare(`

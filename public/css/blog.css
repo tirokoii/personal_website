@@ -1,9 +1,18 @@
 .blog-wrapper {
     background-color: var(--color-white);
     margin: clamp(10px, 5%, 30px);
+
+    h1 {
+        font-size: 3.3rem;
+        background-color: var(--color-white);
+        width: fit-content;
+        padding: 20px 50px 20px 35px;
+        margin-block: 10px;
+    }
 }
 
 .blog-content {
+
     .left-content {
         display: flex;
         flex-direction: column;
@@ -37,12 +46,13 @@
         width: 75%;
         height: 350px;
         padding: 20px;
+        overflow-y: scroll;
 
         .rp-content {
             background-color: var(--color-light);
             height: 100%;
-            overflow-y: scroll;
             padding: 20px;
+
             h2 {
                 font-size: clamp(1.7rem, 3.2vw, var(--h3-fontsize));
             }  
@@ -78,6 +88,7 @@
             margin-bottom: 10px;
             width: auto;
             height: 90%;
+            overflow-y: scroll;
 
             .post-wrapper {
                 background-color: var(--color-white);
