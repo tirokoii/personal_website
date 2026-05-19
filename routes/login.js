@@ -8,7 +8,15 @@ const router = express.Router()
 
 // Startsidan
 router.get("/", (req, res, next) => {
-    res.render("login.njk")
+    let messages = []
+    if (req.session.username) {
+        messages.push("You're logged in")
+    } else if (!req.session.username) {
+        messages.push("You're not logged in")
+    }
+    res.render("login.njk", {
+        messages: messages
+    })
 })
 
 router.post("/",
@@ -74,6 +82,34 @@ router.post("/",
 
         } catch {
             return next()
+        }
+})
+
+router.post("/logout",
+    async (req, res, next) => {
+        const errors = validationResult(req)
+        let messages = []
+
+        if (!errors.isEmpty()) {
+            const err = errors.errors
+            err.forEach(error => {
+                messages.push(error.msg)
+            })
+        }
+
+        const { out } = req.body
+        console.log(out)
+
+        try {
+            console.log(req.sessionID)
+            if (out) {
+                req.session.username = ""
+                req.sessionID = ""
+                req.session.authenticated = false
+                return res.redirect("/login")
+            }
+        } catch(err) {
+            console.log(err)
         }
 })
 

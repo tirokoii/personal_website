@@ -12,6 +12,9 @@
         <input type="text" name="petname" autocomplete="off">
         <button type="submit">Send answer :D</button>
     </form>
+    <form action="/login/logout" method="POST">
+       <button type="submit" name="out" value="out">Logout</button>
+    </form>
     {% if messages %}
         {% for message in messages %}
             <p>{{ message }}</p>

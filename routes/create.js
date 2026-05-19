@@ -7,9 +7,9 @@ import session from "express-session"
 const router = express.Router()
 
 router.get("/", async (req, res, next) => {
-    // if (!req.session.authenticated) {
-    //     return next()
-    // }
+    if (!req.session.authenticated) {
+        return next()
+    }
     
     const tag_rows = db.prepare(`
         SELECT tag.name FROM tag
