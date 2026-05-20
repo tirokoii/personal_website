@@ -119,6 +119,5 @@ router.get("/", (req, res, next) => {
     })
 })
 
-
 // Exporterar inehållet från router
 export default router

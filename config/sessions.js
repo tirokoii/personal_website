@@ -1,4 +1,4 @@
-import session from "express-session"
+import session from "cookie-session"
 import { app } from "../server.js"
 import "dotenv/config"
 
