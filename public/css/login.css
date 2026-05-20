@@ -7,4 +7,54 @@
         flex-direction: column;
         justify-content: space-between;
     }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .middle-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            padding: 30px;
+
+            .login-content {
+                background-color: var(--color-light);
+                display: flex;
+                flex-direction: column;
+                width: 60%;
+                padding: clamp(10px, 2%, 65px);
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+
+                    label {
+                        margin-top: 20px;
+                    }
+
+                    input {
+                        height: 30px;
+                    }
+
+                    button {
+                        width: 75%;
+                        height: 40px;
+                        margin-top: 20px;
+                    }
+                }
+            }
+
+            img {
+                width: 30%;
+            }
+        }
+
+        .logout-wrapper {
+            background-color: var(--color-light);
+            margin: clamp(10px, 2%, 65px);
+        }
+    }
 }

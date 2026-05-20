@@ -1,74 +1,72 @@
 {% extends "./components/layout.njk" %}
 
 {% block content %}
-    <main>
-        <div class="index-wrapper">
-            <header>
-                <h1>TIROKOII</h1>
-            </header>
-            <div class="index-content content">
-                <div class="left-content">
-                    {% include "./components/navbar.njk" %}
-                    {% include "./components/shrine-box.njk" %}
-                </div>
-                <div class="middle-content">
-                    <div class="updates-wrapper">
-                        <h2>UPDATES & NEWS</h2>
-                        <div class="blog-updates">
-                            {% if error_msg %}
-                                {{ error_msg }}
-                            {% else %}
-                                {% for post in posts %}
+    <main class="index-wrapper">
+        <header>
+            <h1>TIROKOII</h1>
+        </header>
+        <div class="index-content content">
+            <div class="left-content">
+                {% include "./components/navbar.njk" %}
+                {% include "./components/shrine-box.njk" %}
+            </div>
+            <div class="middle-content">
+                <div class="updates-wrapper">
+                    <h2>UPDATES & NEWS</h2>
+                    <div class="blog-updates">
+                        {% if error_msg %}
+                            {{ error_msg }}
+                        {% else %}
+                            {% for post in posts %}
+                            <div>
                                 <div>
-                                    <div>
-                                        <h4>{{ post.title }}</h4>
-                                        {% for id in tag_post_row %}
-                                            {% if id.post_id == post.id %}
-                                                {% for tag in tags %}
-                                                    {% if tag.id == id.tag_id %}
-                                                        <p>{{ tag.name }}</p>
-                                                    {% endif %}
-                                                {% endfor %}
-                                            {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                    <p>{{ post.content }}</p>
-                                    <p>{{ post.created_at}}</p>
+                                    <h4>{{ post.title }}</h4>
+                                    {% for id in tag_post_row %}
+                                        {% if id.post_id == post.id %}
+                                            {% for tag in tags %}
+                                                {% if tag.id == id.tag_id %}
+                                                    <p>{{ tag.name }}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </div>
-                                {% endfor %}
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="info-wrapper">
-                        <h3>WHAT'S THIS?</h3>
-                        <p>
-                            This is a personal website created in the purpose of getting 
-                            to know myself more and exploring my knowledge in web design 
-                            and handling web servers. I have been wanting to do my own 
-                            website ever since I saw the unique websites on ladies of 
-                            the link some months ago, and this school project was the 
-                            motivation I needed. <br> I guess you could say that this is my 
-                            personal digital footprint and way of effectively storing my 
-                            thoughts!
-                        </p>
+                                <p>{{ post.content }}</p>
+                                <p>{{ post.created_at}}</p>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
-                <div class="box-wrapper">
-                    <div class="music-box">
-                        <h4>MUSIC</h4>
-                        <!-- something with songs, maybe like a small display where you can play song -->
-                        <!-- Temporary image placeholder -->
-                        <img src="static-images/Mona-Lisa 2.0.png" alt="">
-                        <a href="">Song of the day!!!</a>
-                    </div>
-                    <div class="pictures-box">
-                        <h4>PICTURES</h4>
-                        <a href="#"><img src="static-images/Mona-Lisa 2.0.png" alt="image from pictures from database"></a>
-                    </div>
-                    <div class="art-box">
-                        <h4>LATEST ART</h4>
-                        <a href="#"><img src="static-images/Mona-Lisa 2.0.png" alt="image from art from database"></a>
-                    </div>
+                <div class="info-wrapper">
+                    <h3>WHAT'S THIS?</h3>
+                    <p>
+                        This is a personal website created in the purpose of getting 
+                        to know myself more and exploring my knowledge in web design 
+                        and handling web servers. I have been wanting to do my own 
+                        website ever since I saw the unique websites on ladies of 
+                        the link some months ago, and this school project was the 
+                        motivation I needed. <br> I guess you could say that this is my 
+                        personal digital footprint and way of effectively storing my 
+                        thoughts!
+                    </p>
+                </div>
+            </div>
+            <div class="box-wrapper">
+                <div class="music-box">
+                    <h4>MUSIC</h4>
+                    <!-- something with songs, maybe like a small display where you can play song -->
+                    <!-- Temporary image placeholder -->
+                    <img src="static-images/Mona-Lisa 2.0.png" alt="">
+                    <a href="">Song of the day!!!</a>
+                </div>
+                <div class="pictures-box">
+                    <h4>PICTURES</h4>
+                    <a href="#"><img src="static-images/Mona-Lisa 2.0.png" alt="image from pictures from database"></a>
+                </div>
+                <div class="art-box">
+                    <h4>LATEST ART</h4>
+                    <a href="#"><img src="static-images/Mona-Lisa 2.0.png" alt="image from art from database"></a>
                 </div>
             </div>
         </div>

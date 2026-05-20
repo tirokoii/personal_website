@@ -8,9 +8,6 @@
         padding: 20px 50px 20px 35px;
         margin-block: 10px;
     }
-}
-
-.blog-content {
 
     .left-content {
         display: flex;
@@ -49,7 +46,7 @@
 
         .rp-content {
             background-color: var(--color-light);
-            height: 100%;
+            height: auto;
             padding: 20px;
 
             h2 {

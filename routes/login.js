@@ -8,14 +8,14 @@ const router = express.Router()
 
 // Startsidan
 router.get("/", (req, res, next) => {
-    let messages = []
+    let login_status = []
     if (req.session.username) {
-        messages.push("You're logged in")
+        login_status.push("You're logged in")
     } else if (!req.session.username) {
-        messages.push("You're not logged in")
+        login_status.push("You're not logged in")
     }
     res.render("login.njk", {
-        messages: messages
+        lg_stat: login_status
     })
 })
 
@@ -38,6 +38,7 @@ router.post("/",
     async (req, res, next) => {
         const errors = validationResult(req)
         let messages = []
+        let login_status = []
 
         if (!errors.isEmpty()) {
             const err = errors.errors
@@ -46,16 +47,23 @@ router.post("/",
             })
         }
 
+        if (req.session.username) {
+            login_status.push("You're logged in")
+        } else if (!req.session.username) {
+            login_status.push("You're not logged in")
+        }
+
         const { username, password, petname } = req.body
 
         try {
             const rows = db.prepare('SELECT * FROM user WHERE name = (?)').all(username)
             const user = rows[0]
-
+            
             if (!user) {
                 messages.push("Username or password doesn't match")
                 return res.render("login.njk", {
-                    messages: [messages]
+                    messages: [messages],
+                    lg_stat: login_status
                 })
             }
 
@@ -71,8 +79,10 @@ router.post("/",
                 }
 
                 res.render("login.njk", {
-                    messages: [messages]
+                    messages: [messages],
+                    lg_stat: login_status
                 })
+
             } else {
                 req.session.username = user.name
                 req.session.authenticated = true
