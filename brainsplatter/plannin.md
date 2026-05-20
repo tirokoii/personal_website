@@ -22,3 +22,6 @@ Länka posts och tags i postTag genom post formuläret för att få tags till po
 
 ## Nästa steg 3
 Fortsätt att jobba med tags systemet, koppla samman tags och posts vi create post metoden (Just nu skickas tagarna som dict keys med: namnet_på_tag: "ON")
+
+## Nästa steg 4
+Skapa en snabb logout och clearCookies

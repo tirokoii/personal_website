@@ -17,5 +17,8 @@
             <p>{{ message }}</p>
         {% endfor %}
     {% endif %}
+    <form action="/login/logout" method="POST">
+       <button type="submit" name="out" value="out">Logout</button>
+    </form>
 </main>
 {% endblock %}
