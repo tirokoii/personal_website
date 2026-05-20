@@ -1,8 +1,9 @@
 main {
     display: inline-block;
     background-color: var(--color-light);
-    margin-inline: clamp(10px, 5%, 50px);
+    margin-inline: clamp(10px, 5%, 30px);
     margin-block: 40px;
+    padding: clamp(10px, 5%, 30px);
 }
 
 .content {
@@ -56,7 +57,7 @@ nav {
 .shrine-box {
     background-color: var(--color-light);
     height: clamp(80px, 25vw, 230px);
-    width: 100%;
+    width:auto;
     padding: 20px;
 
     img {

@@ -1,0 +1,10 @@
+.login-wrapper {
+    background-color: var(--color-white);
+    width: 96%;
+
+    .left-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}

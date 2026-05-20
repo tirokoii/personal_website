@@ -1,6 +1,5 @@
 .about-wrapper {
     background-color: var(--color-white);
-    margin: clamp(10px, 5%, 30px);
     padding-bottom: 20px;
 
     h1 {

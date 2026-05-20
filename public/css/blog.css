@@ -1,6 +1,5 @@
 .blog-wrapper {
     background-color: var(--color-white);
-    margin: clamp(10px, 5%, 30px);
 
     h1 {
         font-size: 3.3rem;

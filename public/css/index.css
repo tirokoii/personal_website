@@ -1,6 +1,6 @@
 .index-wrapper {
     background-color: var(--color-white);
-    margin: clamp(10px, 5%, 30px);
+
     header {
         font-size: clamp(1rem, 6vw, var(--h1-fontsize));
         align-content: center;

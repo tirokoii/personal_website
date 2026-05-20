@@ -1,24 +1,32 @@
 {% extends "./components/layout.njk" %}
 
 {% block content %}
-<main>
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <label for="username">The username:</label>
-        <input type="text" name="username" autocomplete="off">
-        <label for="password">The password</label>
-        <input type="password" name="password" autocomplete="off">
-        <label for="petname">The owners pets name:</label>
-        <input type="text" name="petname" autocomplete="off">
-        <button type="submit">Send answer :D</button>
-    </form>
-    <form action="/login/logout" method="POST">
-       <button type="submit" name="out" value="out">Logout</button>
-    </form>
-    {% if messages %}
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
-    {% endif %}
+<main class="login-wrapper content">
+    <div class="left-content">
+        {% include "./components/navbar.njk" %}
+        {% include "./components/shrine-box.njk" %}
+    </div>
+    <div>
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <label for="username">The username:</label>
+            <input type="text" name="username" autocomplete="off">
+            <label for="password">The password</label>
+            <input type="password" name="password" autocomplete="off">
+            <label for="petname">The owners pets name:</label>
+            <input type="text" name="petname" autocomplete="off">
+            <button type="submit">Send answer :D</button>
+        </form>
+    </div>
+    <div>
+        <form action="/login/logout" method="POST">
+           <button type="submit" name="out" value="out">Logout</button>
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
 </main>
 {% endblock %}
