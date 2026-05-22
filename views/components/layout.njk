@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/blog.css">
     <link rel="stylesheet" href="css/aboutMe.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/phoneStyle.css">
+    <link rel="stylesheet" href="css/indexPhone.css">
 </head>
 <body>
     {% block content %}{% endblock %}
@@ -37,6 +39,16 @@
 
             tag.checked = false
         }
+    }
+
+    function openNav() {
+        document.getElementById("nav").style.display = "block";
+        console.log("Hi")
+    }
+
+    function closeNav() {
+        document.getElementById("nav").style.display = "none";
+        console.log("Bai")
     }
 
 </script>

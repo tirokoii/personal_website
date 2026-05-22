@@ -18,6 +18,11 @@ nav {
     width: clamp(160px, 20vw, 200px);
     height: min-content;
 
+    .top-of-nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
     h3 {
         font-size: clamp(1.5rem, 4vw, var(--h3-fontsize));
         margin-bottom: 15px;
@@ -32,12 +37,18 @@ nav {
     }
 
     .year-link {
+        display: flex;
+        column-gap: 5px;
         font-size: clamp(0.9rem, 4vw, calc(var(--h4-fontsize)) - 0.5rem);
     }
 
     .years {
         font-size: clamp(0.7rem, 4vw, calc(var(--h4-fontsize)) - 0.7rem);
         padding-left: 20px;
+    }
+
+    .years a::before  {
+        content: "→ ";
     }
 
     li {
@@ -52,6 +63,22 @@ nav {
         color: var(--color-black);
         font-size: 105%;      
     }
+
+    span {
+        display: none;
+    }
+
+}
+
+.open-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    padding: 0.5ch 3ch 0.5ch 3ch;
+    font-size: 2rem;
+    background-color: var(--color-purple);
 }
 
 .shrine-box {

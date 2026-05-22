@@ -1,30 +1,34 @@
 {% block content %}
-    <nav>
-        <h3>LINKS</h3>
-        <ul>
+    <div class="open-nav">
+        <span class="openbtn" onclick="openNav()">=</span>
+    </div>
+    <nav id="nav">
+        <div class="top-of-nav">
+            <h3>LINKS</h3>
+            <span class="closebtn" onclick="closeNav()">X</span>
+        </div>
+        <ul class="nav-content">
             <li class="link"><a href="\">Home</a></li>
             <li class="link"><a href="\blog">Blog </a></li>
             <li class="link"><a href="#">Art</a>
                 <ul class="year-wrapper">
-                    <li class="year-link">Year ></li>
+                    <li class="year-link">Year <p>^</p></li>
                     <ul class="years">
-                        <li><a href="#">-- 2026</a></li>
-                        <li><a href="#">-- 2025</a></li>
-                        <li><a href="#">-- 2024</a></li>
-                        <li><a href="#">-- Old time</a></li>
+                        <li><a href="#">2026</a></li>
+                        <li><a href="#">2025</a></li>
+                        <li><a href="#">2024</a></li>
+                        <li><a href="#">Old time</a></li>
                     </ul>
                 </ul>
             </li>
             <li class="link"><a href="#">Pictures</a>
                 <ul class="year-wrapper">
-                    <li class="year-link">
-                        <p>Year ></p>
-                    </li>
+                    <li class="year-link">Year <p>^</p></li>
                     <ul class="years">
-                        <li><a href="#">-- 2026</a></li>
-                        <li><a href="#">-- 2025</a></li>
-                        <li><a href="#">-- 2024</a></li>
-                        <li><a href="#">-- Old time</a></li>
+                        <li><a href="#">2026</a></li>
+                        <li><a href="#">2025</a></li>
+                        <li><a href="#">2024</a></li>
+                        <li><a href="#">Old time</a></li>
                     </ul>
                 </ul>
             </li>
