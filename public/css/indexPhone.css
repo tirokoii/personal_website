@@ -1,14 +1,5 @@
 @media only screen and (max-width: 768px) {
     .index-content {
-        flex-direction: column;
-        row-gap: 30px;
-
-        .shrine-box {
-            height: auto;
-            img {
-                height: 350px;
-            }
-        }
 
         .middle-content {
             width: 100%;

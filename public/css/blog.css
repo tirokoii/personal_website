@@ -1,4 +1,5 @@
 .blog-wrapper {
+    display: flex;
     background-color: var(--color-white);
 
     h1 {
@@ -19,21 +20,13 @@
         display: flex;
         flex-direction: column;
         background-color: var(--color-light);
-        width: 100%;
-    }
-
-    .middle-content {
-        display: flex;
-        flex-direction: column;
-        row-gap: clamp(10px, 2vw, 25px);
-        background-color: var(--color-white);
-        margin: clamp(10px, 2%, 65px);
         width: auto;
-
-        .top-flex-area {
+    
+        .top-content {
             display: flex;
             flex-direction: row;
             column-gap: 3%;
+            margin: clamp(10px, 2%, 65px);
         }
     }
 
@@ -42,11 +35,11 @@
         width: 75%;
         height: 350px;
         padding: 20px;
-        overflow-y: scroll;
-
+        
         .rp-content {
             background-color: var(--color-light);
-            height: auto;
+            height: 100%;
+            overflow-y: scroll;
             padding: 20px;
 
             h2 {
@@ -59,7 +52,8 @@
         background-color: var(--color-brown);
         width: auto;
         height: clamp(400px, 40vw, 700px);
-        padding: 40px;
+        padding: 30px;
+        margin: clamp(10px, 2%, 65px);
 
         .atw-top {
             display: flex;
@@ -69,7 +63,7 @@
             width: 100%;
 
             h2 {
-                font-size: clamp(1.7rem, 3.2vw, var(--h3-fontsize));
+                font-size: clamp(1.5rem, 3.2vw, var(--h3-fontsize));
             }
 
             .atw-img-wrapper {
@@ -83,20 +77,20 @@
             padding: 20px;
             margin-bottom: 10px;
             width: auto;
-            height: 90%;
+            height: 85%;
             overflow-y: scroll;
 
             .post-wrapper {
                 background-color: var(--color-white);
             }
-        }
-        
+        }  
     }
 
-    .middle-bottom-wrapper {
+    .middle-content {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        margin: clamp(10px, 2%, 65px);
 
         h5 {
             font-size: clamp(0.7rem, 2.2vw, calc(var(--h4-fontsize) - 0.4rem));
@@ -105,6 +99,33 @@
 
         ul {
             list-style: inside;
+        }
+    }
+
+    .bottom-content {
+        display: flex;
+        flex-direction: row;
+        background-color: var(--color-white);
+        margin: clamp(10px, 2%, 65px);
+        padding: 20px;
+
+        .todo-box {
+            padding: 10px;
+
+            h5 {
+                font-size: 1.2rem;
+                margin: 0;
+            }
+
+            ul {
+                list-style: none;
+            }
+        }
+
+        .done-box {
+            ul {
+                list-style: none;
+            }
         }
     }
 }

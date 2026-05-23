@@ -96,7 +96,7 @@ nav {
 }
 
 .mood-box {
-    background-color: var(--color-light);
+    background-color: var(--color-white);
     height: clamp(80px, 25vw, 230px);
     width: clamp(80px, 25vw, 230px);
 
@@ -108,7 +108,7 @@ nav {
     img {
         object-fit: cover;
         width: auto;
-        height: clamp(70px, 15vw, 160px);
+        height: 75%;
         margin-top: 8px;  
         margin-inline: 15px;
     }

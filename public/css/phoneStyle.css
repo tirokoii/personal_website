@@ -1,4 +1,9 @@
 @media only screen and (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
     nav {
         display: none;
         position: fixed;
@@ -31,6 +36,13 @@
     }
     .open-nav {
         display: block;
+    }
+
+    .shrine-box {
+        height: auto;
+        img {
+            height: 350px;
+        }
     }
 }
 
