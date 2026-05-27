@@ -25,3 +25,6 @@ Fortsätt att jobba med tags systemet, koppla samman tags och posts vi create po
 
 ## Nästa steg 4
 Skapa en snabb logout och clearCookies
+
+## Nästa steg 5
+About css phone version
