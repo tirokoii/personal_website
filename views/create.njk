@@ -1,27 +1,45 @@
 {% extends "./components/layout.njk" %}
 
 {% block content %}
-    <form action="/create" method="POST">
-        <label for="title">Title:</label>
-        <input type="text" name="title" autocomplete="off">
-        <label for="content">Content:</label>
-        <input type="text" name="content" autocomplete="off">
-        <fieldset>
-            {% if tags %}
-                {% for tag in tags %}
-                    <label for="{{ tag.name }}">{{ tag.name }}</label>
-                    <input type="checkbox" name="{{ tag.name }}" id="{{ tag.name }}" onclick="handleCheckBox(this.id)">
-                {% endfor %}
-            {% endif %}
-        </fieldset>
-        <button type="submit">Post it >:D</button>
-    </form>
-    <div>
-        {% if post %}
-            <h2>{{ post[0].title }}</h2>
-            <p>{{ post[0].content }}</p>
-            <p>{{ post[0].created_at }}</p>
-            <p>{{ msg }}</p>
-        {% endif %}
-    </div>
+    <main class="create-wrapper">
+        <div class="left-content">
+            {% include "./components/navbar.njk" %}
+            {% include "./components/shrine-box.njk" %}
+        </div>
+        <div class="create-content content">
+            <form action="/create" method="POST">
+                <div class="writing-box">
+                    <div class="title-wrapper">
+                        <label for="title">Title:</label>
+                        <input type="text" name="title" id="title" autocomplete="off">
+                    </div>
+                    <div class="content-wrapper">
+                        <label for="content">Content:</label>
+                        <input type="text" name="content" id="content" autocomplete="off">
+                    </div>
+                </div>
+                <div class="tags-wrapper">
+                    <fieldset>
+                        {% if tags %}
+                            {% for tag in tags %}
+                            <div>
+                                <label for="{{ tag.name }}">{{ tag.name }}</label>
+                                <input type="checkbox" name="{{ tag.name }}" id="{{ tag.name }}" onclick="handleCheckBox(this.id)">
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    </fieldset>
+                    <button type="submit">Post it >:D</button>
+                </div>
+            </form>
+            <div>
+                {% if post %}
+                    <h2>{{ post[0].title }}</h2>
+                    <p>{{ post[0].content }}</p>
+                    <p>{{ post[0].created_at }}</p>
+                    <p>{{ msg }}</p>
+                {% endif %}
+            </div>
+        </div>    
+    </main>
 {% endblock %}

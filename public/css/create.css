@@ -1,0 +1,80 @@
+.create-wrapper {
+    display: flex;
+    background-color: var(--color-light);
+    
+    .create-content {
+        margin-inline: clamp(10px, 3%, 80px);
+        width: 100%;
+        height: 800px;
+
+        form {
+            display: flex;
+            column-gap: clamp(10px, 2%, 65px);
+            width: 100%;
+            .writing-box {
+                display: flex;
+                flex-direction: column;
+                background-color: var(--color-light);
+                width: 70%;
+
+                label {
+                    font-size: 1.7rem;
+                }
+
+                .title-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 1.8rem;
+                    width: 100%;
+                    height: 10%;
+
+                    input {
+                        height: 100%;
+                    }
+                }
+                
+                .content-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 90%;
+
+                    input {
+                        height: 100%;
+                    }
+                }
+
+            }
+
+            .tags-wrapper {
+                background-color: var(--color-white);
+                width: 30%;
+                padding: clamp(10px, 2%, 40px);
+
+                fieldset {
+                    display: flex;
+                    flex-direction: column;
+                    border: 0;
+                    
+                    * {
+                        font-size: 1.2rem;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        margin: 5px;
+                    }
+
+                    input {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                }
+                button {
+                    width: 100%;
+                    height: 50px;
+                }
+            }
+        }
+    }
+}

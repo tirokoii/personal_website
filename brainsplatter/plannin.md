@@ -14,17 +14,19 @@ rätt ställe.
 Implementera ett slags spel eller något i webbläsaren med js?
 
 # Sen dokumentering
-## Nästa steg
+### Nästa steg
 Måste göra layouten för create samt även starta på dess metoder utifrån planeringen för den nästa gång. Efter det måste jag skapa databas tabellerna för de resterande sakerna.
 
-## Nästa steg 2
+### Nästa steg 2
 Länka posts och tags i postTag genom post formuläret för att få tags till posts, (restrict tag amount) 
 
-## Nästa steg 3
+### Nästa steg 3
 Fortsätt att jobba med tags systemet, koppla samman tags och posts vi create post metoden (Just nu skickas tagarna som dict keys med: namnet_på_tag: "ON")
 
-## Nästa steg 4
+### Nästa steg 4
 Skapa en snabb logout och clearCookies
 
-## Nästa steg 5
+### Nästa steg 5
 About css phone version
+Skapa temporär användare för att (lärare ska kunna kolla på create sidan):
+restricta så att om man har den kan man ej posta saker.
