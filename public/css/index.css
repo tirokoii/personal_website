@@ -39,11 +39,43 @@
         }
 
         .blog-updates {
-            background-color: var(--color-white);
+            background-color: var(--color-purple);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             height: clamp(200px, 20vw, 500px);
             overflow-y: scroll;
             margin-top: 25px;
             padding: 20px;
+
+            .blog-post {
+                background-color: var(--color-white);
+                padding: 15px;
+                p {
+                    margin: 10px;
+                }
+                .blog-top-wrapper {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-bottom: 7px;
+                    border-bottom: 2px solid var(--color-brown);
+
+                    h4 {
+                        font-size: 1.7rem;
+                    }
+                }
+
+                .tags {
+                    display: flex;
+
+                    p {
+                        background-color: var(--color-light);
+                        padding: 0.5ch 2ch 0.5ch 2ch;
+                        border-radius: 30px;
+                    }
+                }
+            }
         }
     }
 

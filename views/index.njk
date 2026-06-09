@@ -18,18 +18,20 @@
                             {{ error_msg }}
                         {% else %}
                             {% for post in posts %}
-                            <div>
-                                <div>
+                            <div class="blog-post">
+                                <div class="blog-top-wrapper">
                                     <h4>{{ post.title }}</h4>
-                                    {% for id in tag_post_row %}
-                                        {% if id.post_id == post.id %}
-                                            {% for tag in tags %}
-                                                {% if tag.id == id.tag_id %}
-                                                    <p>{{ tag.name }}</p>
-                                                {% endif %}
-                                            {% endfor %}
-                                        {% endif %}
-                                    {% endfor %}
+                                    <div class="tags">
+                                        {% for id in tag_post_row %}
+                                            {% if id.post_id == post.id %}
+                                                {% for tag in tags %}
+                                                    {% if tag.id == id.tag_id %}
+                                                        <p>{{ tag.name }}</p>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
                                 </div>
                                 <p>{{ post.content }}</p>
                                 <p>{{ post.created_at}}</p>
